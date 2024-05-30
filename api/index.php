@@ -8,7 +8,7 @@ class Database
 
     private function __construct()
     {
-        $this->db = json_decode(file_get_contents('courses.json'), true);
+        $this->db = json_decode(file_get_contents('courses.json', FILE_USE_INCLUDE_PATH), true);
         $this->db = $this->db['Report_Entry'];
     }
 
