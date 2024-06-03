@@ -1,15 +1,23 @@
 <?php
-
+ $jsonString = file_get_contents('Data.json', FILE_USE_INCLUDE_PATH);
+$data = json_decode($jsonString, true);
+$reportEntries = $data['Report_Entry']; 
+$bigString = var_dump($data);
 
 class Database
 {
+    
+
     private static $instance = null;
     private $db;
+   
 
     private function __construct()
     {
         $this->db = json_decode(file_get_contents('courses.json', FILE_USE_INCLUDE_PATH), true);
         $this->db = $this->db['Report_Entry'];
+
+        
     }
 
     public static function getInstance()
@@ -107,6 +115,7 @@ class Course
     public function displayCourse()
     {
         echo '<h1>' . $this->courseSubjects . '</h1>';
+        echo '<p>' . $this->enrollmentCount . '</p>';
         echo '<h2>' . $this->courseListing . '</h2>';
         echo '<p>' . $this->enrollmentCount . '</p>';
         echo '<p>' . $this->campusLocations . '</p>';
@@ -127,7 +136,7 @@ class Course
         echo '<p>' . $this->startDate . '</p>';
         echo '<p>' . $this->sectionCapacity . '</p>';
         echo '<p>' . $this->location . '</p>';
-    }
+   }
 }
 
 class CourseListing
@@ -227,6 +236,7 @@ $courseListing = $courseListing->courses;
             <div class="row" v-if="filteredCourses.length === 0">
                 <div class="col-12">
                     <p class="text-center">No courses found matching the criteria.</p>
+                    <p class="text-center"><?=$bigString ?></p>
                 </div>
             </div>
             <div class="row">
