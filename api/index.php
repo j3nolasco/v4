@@ -14,7 +14,7 @@ class Database
 
     private function __construct()
     {
-        $this->db = json_decode(file_get_contents('courses.json', FILE_USE_INCLUDE_PATH), true);
+        $this->db = json_decode(file_get_contents('Data.json', FILE_USE_INCLUDE_PATH), true);
         $this->db = $this->db['Report_Entry'];
 
         
@@ -236,7 +236,6 @@ $courseListing = $courseListing->courses;
             <div class="row" v-if="filteredCourses.length === 0">
                 <div class="col-12">
                     <p class="text-center">No courses found matching the criteria.</p>
-                    <p class="text-center"><?=$bigString ?></p>
                 </div>
             </div>
             <div class="row">
