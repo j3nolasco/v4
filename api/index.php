@@ -2,7 +2,7 @@
  $jsonString = file_get_contents('Data.json', FILE_USE_INCLUDE_PATH);
 $data = json_decode($jsonString, true);
 $reportEntries = $data['Report_Entry']; 
-$bigString = var_dump($data);
+//$bigString = var_dump($data);
 
 class Database
 {
