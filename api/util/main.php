@@ -10,3 +10,4 @@ if (count($directories) > 1) {
 }
 $cssPath = "{$appPath}public/css/style.css";
 $jsPath = "{$appPath}public/js/app.js";
+?>
